@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Ubuntu:ital,wght@1,300&display=swap">
+</head>
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif, cursive;
+        margin: 0px;
+        padding: 0px;
+
+    }
+    /* css for avoid overlap with navbar */
+    #homepage{
+padding: 70px;
+    }
+    #best{
+        padding: 70px;
+    }
+    #recommendations{
+        padding: 70px;
+    }
+    #reviews{
+        padding: 70px;
+    }
+/* css for header portion */
+    .header {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgb(7, 7, 7);
+    }
+
+    .left {
+        display: inline-block;
+        margin-left: 30px;
+        margin-top: 30px;
+        margin-bottom: 25px;
+    }
+
+    .left img {
+        width: 60px;
+    }
+
+    .mid {
+        text-align: right;
+        display: inline-block;
+        width: 72%;
+        margin: 25px auto;
+    }
+
+    .navbar {
+        display: inline-block;
+    }
+
+    .navbar li {
+        display: inline-block;
+        font-size: 20px;
+    }
+
+    .navbar li a {
+        color: rgb(241, 247, 245);
+        text-decoration: none;
+        padding: 5px 29px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a:active {
+        text-decoration: underline;
+        color: blue;
+    }
+
+    /* css for home page */
+    .homepage {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 175px;
+        /* align-items: left; */
+        background-color: rgb(242, 176, 176);
+        width: 100%;
+    }
+
+    .homepage .flex1 {
+        align-self: center;
+        margin-left: 50px;
+    }
+
+    .homepage h3 {
+        size: 50px;
+        margin-bottom: 0px;
+        margin-left: 25px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .homepage h1 {
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        size: 45px;
+        margin-top: 2px;
+        margin-bottom: 20px;
+        margin-left: 25px;
+    }
+
+    .homepage img {
+        width: 50%;
+
+        margin-left: 200px;
+    }
+
+    .homepage p {
+        margin-left: 25px;
+    }
+
+    #homepage button {
+        display: inline-block;
+        margin-left: 25px;
+        width: 200px;
+        background-color: black;
+        color: white;
+        border: 2px solid aqua;
+        border-radius: 7px;
+        height: 30px;
+    }
+
+    /* css for best seller part */
+    .headings {
+        margin-top: 75px;
+        margin-left: 25px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    #best h3,
+    #recommendations h3 {
+        margin-left: 25px;
+    }
+
+    .books {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .books img {
+        width: 20%;
+        align-self: center;
+        margin-top: 20px;
+        margin-left: 35%;
+    }
+
+    .books h5 {
+        margin-left: 25px;
+        font-style: italic;
+    }
+
+    .books p {
+        margin-left: 25px;
+    }
+
+    .title {
+        margin-left: 25px 25px;
+    }
+
+    .title h3 {
+        display: inline-block;
+    }
+
+    .book1,
+    .book2,
+    .book3,
+    .book4,
+    .book5,
+    .book6 {
+        margin: 10px;
+        width: 40%;
+        height: 500px;
+        background-color: rgb(163, 225, 234);
+        border: 3px solid black;
+        border-radius: 10px;
+    }
+
+    .price {
+        text-align: right;
+        margin-right: 25px;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    #best button,
+    #recommendations button {
+        margin-left: 2%;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+
+    #best button:focus,
+    #recommendations button:focus {
+        background-color: rgb(108, 244, 108);
+
+    }
+
+    /* css for recommendations  */
+    #recommendations .search {
+        display: flex;
+        background-color: black;
+        width: 50%;
+        margin-left: 10%;
+        border-radius: 20px;
+    }
+
+    #recommendations .search:hover {
+        border: 4px solid rgb(111, 232, 241);
+    }
+
+    #recommendations .searchbox {
+        width: 90%;
+        height: 50px;
+    }
+
+    #recommendations .searchbox input:hover {
+        border: 4px solid red;
+    }
+
+    #recommendations .searchbox input {
+        width: 100%;
+        height: 30px;
+        margin-left: 2%;
+        margin-top: 5px;
+        border: 3px solid black;
+        background-color: whitesmoke;
+        border-radius: 20px;
+
+    }
+
+    #recommendations .search img {
+        margin-left: 1%;
+        margin-top: 2%;
+        width: 30px;
+        height: 30px;
+        border-radius: 30px;
+    }
+
+    /* css for reviews */
+    .rv {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .rv1,
+    .rv2,
+    .rv3 {
+        width: 30%;
+        background-color: lightyellow;
+        text-align: center;
+        border: 4px solid black;
+        border-radius: 10px;
+    }
+
+    #reviews .rv img {
+        width: 30%;
+        border: 1px dashed black;
+        border-radius: 120px;
+        margin-left: 5%;
+    }
+
+    .people {
+        display: flex;
+        align-items: center;
+    }
+
+    /* css for form */
+    #reviews h2 {
+        font-style: italic;
+        margin-left: 8%;
+        margin-top: 50px;
+    }
+
+    .reviewform {
+        background: url(Bookscoverpage.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 2px solid rgb(0, 0, 0);
+        margin: 40px 100px;
+        padding: 34px 64px;
+        width: 60%;
+        height: 200px;
+        border-radius: 16px;
+        text-align: left;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
+    .form input {
+        width: 500px;
+        height: 20px;
+        margin: 8px auto;
+        padding: 5px;
+        border: 2px solid red;
+        border-radius: 5px;
+    }
+
+    .reviewform button {
+        font-family: 'Baloo Bhai 2', cursive;
+        margin: 8px auto;
+        background-color: black;
+        color: white;
+        padding: 5px;
+        border: 4px solid aqua;
+        border-radius: 10px;
+        width: 200px;
+        text-align: center;
+    }
+
+    /* css for footer */
+    .footer {
+        background-color: rgb(200, 192, 192);
+    }
+
+    .footer img {
+        width: 50px;
+        border-radius: 12px;
+        margin: 20px auto;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .footer .links {
+        margin-left: 8%;
+        line-height: 25px;
+        text-decoration: none;
+    }
+    .footer  a{
+        text-decoration: none;
+    }
+
+    .footer button {
+        margin: 5px 10%;
+        width: 10%;
+        height: 40px;
+        text-decoration: none;
+    }
+     
+</style>
+
+<body>
+    <header class="header">
+        <!-- left for logo -->
+        <div class="left">
+            <img src="library.jpg" alt="">
+        </div>
+        <!--mid for navbar-->
+        <div class="mid">
+            <ul class="navbar">
+                <li> <a href="#homepage">Home</a></li>
+                <li><a href="#best">Best selling </a></li>
+                <li><a href="#recommendations">Our recommendations</a></li>
+                <li><a href="#reviews">Reviews </a></li>
+            </ul>
+        </div>
+    </header>
+    <div id="homepage">
+        <div class="homepage">
+            <div class="flex1">
+                <h3>Kunal's Book Shop</h3>
+                <h1>Get all the books of your interst here</h1>
+
+                <div class="btn">
+                    <button>Best Selling Books</button>
+                </div>
+            </div>
+            <div class="flex2">
+                <img src="Bookscoverpage.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="best">
+        <div class="headings">
+            <h1>Best selling books</h1>
+        </div>
+        <h3>Here are some of the best seller suggestions for you. Check it out once</h3>
+        <div class="books">
+            <div class="book1">
+                <h5>Biography</h5>
+                <img src="wingsoffire.webp" alt="">
+                <div class="title">
+                    <button>Add</button>
+                    <h3>Wings Of Fire</h3>
+                </div>
+                <p>20% off</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus possimus iure, esse vel
+                    recusandae!</p>
+                <div class="price">
+                    <p>500 Rupees</p>
+                </div>
+            </div>
+
+            <div class="book2">
+                <h5>Fiction</h5>
+                <img src="secretmessanger.jpg" alt="">
+                <div class="title">
+                    <button>Add</button>
+                    <h3>Secret Messenger</h3>
+                </div>
+                <p>10% off</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus possimus iure, esse vel
+                    recusandae!</p>
+                <div class="price">
+                    <p>500 Rupees</p>
+                </div>
+            </div>
+
+            <div class="book3">
+                <h5>Economics</h5>
+                <img src="aftermath.jfif" alt="">
+                <div class="title">
+                    <button>Add</button>
+                    <h3>After Math</h3>
+                </div>
+                <p>15% off</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus possimus iure, esse vel
+                    recusandae!</p>
+                <div class="price">
+                    <p>500 Rupees</p>
+                </div>
+            </div>
+
+            <div class="book4">
+                <h5>Biography</h5>
+                <img src="canthurtme.jpg" alt="">
+                <div class="title">
+                    <button>Add</button>
+                    <h3>Can't Hurt Me</h3>
+                </div>
+                <p>10% off</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus possimus iure, esse vel
+                    recusandae!</p>
+                <div class="price">
+                    <p>500 Rupees</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="recommendations">
+        <div class="headings">
+            <h1>Our Recommendations</h1>
+        </div>
+        <h3>These are some of the best books of different categories. Check them out once.</h3>
+        <div class="search">
+            <img src="searchicon.png" alt="">
+            <div class="searchbox">
+                <input type="text" placeholder="Search......">
+            </div>
+        </div>
+
+        <div class="books">
+            <div class="book1">
+                <h5>Fiction</h5>
+                <img src="lordofthering.jfif" alt="">
+                <div class="title">
+                    <button>Add</button>
+                    <h3>The Lord Of The Rings</h3>
+                </div>
+                <p>20% off</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus possimus iure, esse vel
+                    recusandae!</p>
+                <div class="price">
+                    <p>500 Rupees</p>
+                </div>
+            </div>
+
+            <div class="book2">
+                <h5>Fiction</h5>
+                <img src="harrypotter.jpg" alt="">
+                <div class="title">
+                    <button>Add</button>
+                    <h3>Harry Potter And The Philosophers Stone</h3>
+                </div>
+                <p>10% off</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus possimus iure, esse vel
+                    recusandae!</p>
+                <div class="price">
+                    <p>500 Rupees</p>
+                </div>
+            </div>
+
+            <div class="book3">
+                <h5>Fiction</h5>
+                <img src="palaceofillusions.webp" alt="">
+                <div class="title">
+                    <button>Add</button>
+                    <h3>The palace of illusions</h3>
+                </div>
+                <p>15% off</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus possimus iure, esse vel
+                    recusandae!</p>
+                <div class="price">
+                    <p>500 Rupees</p>
+                </div>
+            </div>
+
+            <div class="book4">
+                <h5>Non-Fictious</h5>
+                <img src="gitanjali.jfif" alt="">
+                <div class="title">
+                    <button>Add</button>
+                    <h3>Gitanjali</h3>
+                </div>
+                <p>10% off</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad doloribus possimus iure, esse vel
+                    recusandae!</p>
+                <div class="price">
+                    <p>500 Rupees</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="reviews">
+        <div class="headings">
+            <h1>Reviews</h1>
+        </div>
+        <div class="rv">
+            <div class="rv1">
+                <div class="people">
+                    <img src="doraemon.png" alt="">
+                    <h3>Doraemon</h3>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia esse alias odit accusantium cumque,
+                dolores cum, est aliquam maxime autem nobis soluta nesciunt? Officiis, ipsam!
+            </div>
+            <div class="rv2">
+                <div class="people">
+                    <img src="pikachu.jpg" alt="">
+                    <h3>Pikachu</h3>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia esse alias odit accusantium cumque,
+                dolores cum, est aliquam maxime autem nobis soluta nesciunt? Officiis, ipsam!
+            </div>
+            <div class="rv3">
+                <div class="people">
+                    <img src="jerry.jpg" alt="">
+                    <h3>Jerry</h3>
+                </div>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia esse alias odit accusantium cumque,
+                dolores cum, est aliquam maxime autem nobis soluta nesciunt? Officiis, ipsam!
+            </div>
+        </div>
+        <h2>Enter your reviews here</h2>
+        <div class="reviewform">
+            <form action="noaction.php">
+                <div class="form">
+                    <input type="text" placeholder="Enter your Name">
+                </div>
+                <div class="form">
+                    <input type="text" placeholder="Enter your Email-Id">
+                </div>
+                <div class="form">
+                    <input type="text" placeholder="Type your review....">
+                </div>
+                <button class="btn3">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="icons">
+            <a href="https://www.instagram.com" target="_blank"> <img src="instalogo.jfif" alt=""></a>
+            <a href="https://www.facebook.com" target="_blank"><img src="facebooklogo.png" alt=""></a>
+        </div>
+        <div class="links">
+            <li><a href="terms.com" target="_blank">Terms and conditions</a></li>
+            <li><a href="privacypolicies.com" target="_blank">Privacy policy</a></li>
+            <li><a href="copyright.com" target="_blank">Copyright information</a></li>
+        </div>
+        <button><a href="#homepage">Back to top</a></button>
+    </div>
+</body>
+
+</html>
